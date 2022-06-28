@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 9d93de18fe800b08e96446c7f5fa4ed0de197699 azaly <azaly@DESKTOP-DE64LOB.localdomain> 1652644075 +0300	clone: from git@github.com:LuckyBoyE14/micro_blog.git
-9d93de18fe800b08e96446c7f5fa4ed0de197699 ff87d47fbdf0de271a872ddba6746a16613d6786 azaly <azaly@DESKTOP-DE64LOB.localdomain> 1652650962 +0300	pull origin master: Fast-forward
-ff87d47fbdf0de271a872ddba6746a16613d6786 179b8820da2e418e7c7e577e1049215c81b71620 azaly <azaly@DESKTOP-DE64LOB.localdomain> 1652883893 +0300	pull origin master: Fast-forward
-179b8820da2e418e7c7e577e1049215c81b71620 bdfd27108a41785b6c91da046393931ccf98807f azaly <azaly@DESKTOP-DE64LOB.localdomain> 1652888285 +0300	pull origin master: Fast-forward
-bdfd27108a41785b6c91da046393931ccf98807f bdfd27108a41785b6c91da046393931ccf98807f git stash <git@stash> 1654206167 +0300	reset: moving to HEAD
-bdfd27108a41785b6c91da046393931ccf98807f b5fd8dc9afd902fc53ff13205b9757e158ea1f52 azaly <azaly@DESKTOP-DE64LOB.localdomain> 1654206172 +0300	pull: Fast-forward
-b5fd8dc9afd902fc53ff13205b9757e158ea1f52 598d008aa1343b971af470e45e6e7e4fdda4f20f Azaliia <azalymini@gmail.com> 1656452391 +0300	commit: release
