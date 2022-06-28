@@ -1,0 +1,68 @@
+<!-- templates/base.html -->
+{% load bootstrap5 %}
+{% load static %}
+<html>
+  <head>
+    <title>Микро-блог на Django</title>
+    {% bootstrap_css %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <link rel="stylesheet" href=" {% static 'css/base.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+         <img src="{% static 'brand.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          MiniTwitter
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ user.username }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'create_post' %}">Создать статью</a></li>
+                <li><a class="dropdown-item" href="#">Изменить пароль</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Зарегистироваться</a>
+            </li>
+            {% endif %}
+          </ul>
+          <form class="d-flex" method="get" action="{% url 'home' %}">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="find_text">
+            <button class="btn btn-dark" type="submit">Поиск</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 p-3">
+          {% block content %}
+          {% endblock content %}
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+    </div>
+    {% bootstrap_javascript %}
+  </body>
+</html>

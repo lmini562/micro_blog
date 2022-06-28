@@ -1,0 +1,13 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+ 
+{% block content %}
+      <form method="post" action="{% url 'create_post' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <div class="modal-footer">
+          <a href="{% url 'home' %}" class="btn btn-secondary">Отмена</a>
+          <button type="submit" class="btn btn-primary">Создать</button>
+        </div>
+      </form>
+{% endblock %}

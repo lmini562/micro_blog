@@ -1,0 +1,45 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+ 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="p-3 border bg-light">
+        <p class="text-muted">Создано: {{ post.date|date:'Y-m-d H:i' }}</p>
+        <h4 class="display-6 border-bottom">{{ post.title }}</h2>
+        <p class="text-justify">{{ post.text }}</p>
+        <p class="text-muted text-end">Автор: @{{ post.author }}</p>
+      </div>
+    </div>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="row">
+    <div class="col mt-2">
+      <div class="p-3 border">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="mt-1 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary">Комментировать</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col">
+      {% for comment in post.comments.all %}
+      <div class="card mt-3">
+        <div class="card-body">
+          <p class="card-text"> <small class="text-muted">@{{ comment.author }}</small></p>
+          <p class="card-text">{{ comment.text }}</p>
+          <footer class="blockquote-footer mt-1">Создано: {{ comment.date|date:'Y-m-d H:i' }}</footer>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends  'base.html' %}
+
+{% block content %}
+<!-- Модальное окно для входа в систему -->
+      <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+        <div class="modal-body">
+          <label for="{{ form.username.id_for_label }}" class="col-sm-2 col-form-label">Username</label>
+          {{ form.username }}
+          {{ form.username.errors }}
+          <label for="{{ form.password.id_for_label }}" class="col-sm-2 col-form-label">Password</label>
+          {{ form.password }}
+          {{ form.password.errors }}
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Войти</button>
+          <input type="hidden" name="next" value="{{ next }}"></input>
+        </div>
+      </form>
+{% endblock %}
